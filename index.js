@@ -9,7 +9,6 @@ const args = process.argv
 
 
 const n = parseInt(args.n, 10) || 1000000;
-console.log('N =', n);
 
 printDuplicates(generateList(n));
 
@@ -27,7 +26,9 @@ function generateList(n) {
 
     // Tricky case 'Therefore there must be at least one duplicate in the list.'.
     // Just add a first element to the end of array
-    arr.push(arr[0]);
+    if (arr[0]) {
+        arr.push(arr[0]);
+    }
 
     return arr;
 }
